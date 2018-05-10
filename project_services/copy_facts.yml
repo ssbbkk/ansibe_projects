@@ -1,0 +1,19 @@
+---
+- name: Copying facts file to remote hosts
+  hosts: all
+  vars:
+    remote_dir: /etc/ansible/facts.d/
+    fact_file: custom.fact
+  tasks:
+    - name: Create a remote directory
+      file:
+        state: directory
+        recurse: yes
+        path: "{{ remote_dir }}"
+
+    - name: Copy {{ fact_file }} file to remote hosts location {{ remote_dir }}
+      copy:
+        src: "{{ fact_file }}"
+        dest: "{{ remote_dir }}"
+        mode: 0644
+...

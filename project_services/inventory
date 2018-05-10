@@ -1,0 +1,10 @@
+[all]
+dnmaster
+dn01
+dn02
+
+[file]
+dn01
+
+[lamp]
+dn02
